@@ -40,8 +40,10 @@ export default function AppShell() {
 
   return (
     <div className="min-h-screen bg-[#F5F9F7] dark:bg-[#1E1E1E] text-[#1A3D36] dark:text-[#E5E5E5] transition-colors duration-300 font-sans px-4 py-6 max-w-md mx-auto">
-      <div className="flex justify-end mb-6">
-        <h1 className="text-2xl font-bold tracking-tight mb-1">🌱 EcoTasks</h1>
+      <div className="flex justify-between mb-6">
+        <h1 className="text-2xl font-bold tracking-tight mb-1 mt-2">
+          🌱 EcoTasks
+        </h1>
         <button
           onClick={() => setIsDarkMode(!isDarkMode)}
           className="px-3 py-1.5 rounded-full bg-[#00A86B] text-white text-sm hover:bg-[#007A50] transition"
@@ -50,19 +52,16 @@ export default function AppShell() {
         </button>
       </div>
 
-      {/* Cabeçalho */}
       <header className="mb-6">
         <h2 className="text-lg font-semibold mb-3">Desafio do Dia</h2>
       </header>
 
-      {/* Cartão de desafio */}
       <ChallengeCard
         challenge={desafioDoDia}
         done={challengeDone}
         onComplete={handleCompleteChallenge}
       />
 
-      {/* Lista de sugestões */}
       <section className="mt-8">
         <h3 className="text-lg font-semibold mb-3">Sugestões Sustentáveis</h3>
         <SuggestionsList suggestions={sugestoes} />
