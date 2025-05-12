@@ -18,56 +18,66 @@ export default function AppShell() {
   const handleCompleteChallenge = () => {
     if (!challengeDone) {
       setCompleted((prev) => prev + 1);
-      setCo2((prev) => prev + 2); // exemplo: cada desafio = 2kg CO2
+      setCo2((prev) => prev + 2);
       setChallengeDone(true);
     }
   };
 
-    useEffect(() => {
-      const userPrefersDark = window.matchMedia(
-        "(prefers-color-scheme: dark)"
-      ).matches;
-      setIsDarkMode(userPrefersDark);
-    }, []);
+  useEffect(() => {
+    const userPrefersDark = window.matchMedia(
+      "(prefers-color-scheme: dark)"
+    ).matches;
+    setIsDarkMode(userPrefersDark);
+  }, []);
 
-    useEffect(() => {
-      if (isDarkMode) {
-        document.documentElement.classList.add("dark");
-      } else {
-        document.documentElement.classList.remove("dark");
-      }
-    }, [isDarkMode]);
+  useEffect(() => {
+    if (isDarkMode) {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+  }, [isDarkMode]);
 
   return (
-    <div className="min-h-screen bg-green-50 p-6 text-green-900 font-sans max-w-md mx-auto">
-      
-      <button
-        onClick={() => setIsDarkMode(!isDarkMode)}
-        className="mb-6 p-2 rounded-lg bg-blue-500 text-white hover:bg-blue-600"
-      >
-        {isDarkMode ? "Modo Claro" : "Modo Escuro"}
-      </button>
+    <div className="min-h-screen bg-[#F5F9F7] dark:bg-[#1E1E1E] text-[#1A3D36] dark:text-[#E5E5E5] transition-colors duration-300 font-sans px-4 py-6 max-w-md mx-auto">
+      {/* Botão de modo escuro no topo direito */}
+      <div className="flex justify-end mb-6">
+        <button
+          onClick={() => setIsDarkMode(!isDarkMode)}
+          className="px-3 py-1.5 rounded-full bg-[#00A86B] text-white text-sm hover:bg-[#007A50] transition"
+        >
+          {isDarkMode ? "☀️ Claro" : "🌙 Escuro"}
+        </button>
+      </div>
 
+      {/* Cabeçalho */}
       <header className="mb-6">
-        <h1 className="text-3xl font-bold mb-1">🌱 EcoTasks</h1>
-        <h2 className="text-xl font-semibold text-green-700">Desafio do Dia</h2>
+        <h1 className="text-3xl font-bold tracking-tight mb-1">🌱 EcoTasks</h1>
+        <h2 className="text-lg font-medium text-[#00A86B] dark:text-[#6EE7B7]">
+          Desafio do Dia
+        </h2>
       </header>
 
+      {/* Cartão de desafio */}
       <ChallengeCard
         challenge={desafioDoDia}
         done={challengeDone}
         onComplete={handleCompleteChallenge}
       />
 
-      <section className="mt-6">
-        <h3 className="text-lg font-semibold mb-2">Sugestões</h3>
+      {/* Lista de sugestões */}
+      <section className="mt-8">
+        <h3 className="text-lg font-semibold mb-3">Sugestões Sustentáveis</h3>
         <SuggestionsList suggestions={sugestoes} />
-        <p className="text-orange-500 text-center mt-2 text-sm cursor-pointer hover:underline">
+        <p className="text-[#E58E26] mt-4 text-center text-sm cursor-pointer hover:underline">
           Ver mais sugestões
         </p>
       </section>
 
-      <ImpactStats completed={completed} co2={co2} />
+      {/* Estatísticas */}
+      <div className="mt-10">
+        <ImpactStats completed={completed} co2={co2} />
+      </div>
     </div>
   );
 }
