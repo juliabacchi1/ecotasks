@@ -9,6 +9,9 @@ export default function ChallengeCard({ challenge, done, onComplete }) {
       <button
         onClick={onComplete}
         disabled={done}
+        aria-label={
+          done ? "Desafio já concluído" : "Marcar desafio como concluído"
+        }
         className={`w-full py-3 rounded-full text-white font-semibold transition-all duration-300 ${
           done
             ? "bg-[#6EE7B7] cursor-not-allowed"

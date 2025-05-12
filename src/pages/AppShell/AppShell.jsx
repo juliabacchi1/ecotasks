@@ -53,6 +53,7 @@ export default function AppShell() {
         <button
           onClick={() => setIsDarkMode(!isDarkMode)}
           className="px-3 py-1.5 rounded-full bg-[#00A86B] text-white text-sm hover:bg-[#007A50] transition"
+          aria-label={isDarkMode ? "Ativar modo claro" : "Ativar modo escuro"}
         >
           {isDarkMode ? "☀️ Claro" : "🌙 Escuro"}
         </button>
