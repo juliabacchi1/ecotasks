@@ -2,7 +2,7 @@ export default function ChallengeCard({ challenge, done, onComplete }) {
   return (
     <div className="bg-white dark:bg-[#2A2A2A] rounded-2xl shadow-lg p-6 flex flex-col gap-6 transition-all">
       <div className="flex items-center gap-3">
-        <span className="text-3xl">🥕</span>
+        <span className="text-3xl">💡</span>
         <p className="text-lg font-semibold">{challenge}</p>
       </div>
 

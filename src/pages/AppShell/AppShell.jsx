@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import ChallengeCard from "../../components/Challenge/ChallengeCard";
-import SuggestionsList from "../../components/Lists/SuggestionsList";
+import SuggestionsSection from "../../components/Lists/SuggestionsSection";
 import ImpactStats from "../../components/Stats/ImpactStats";
+import suggestions from "../../data/SuggestionsList";
 
 export default function AppShell() {
   const [completed, setCompleted] = useState(29);
@@ -9,11 +10,16 @@ export default function AppShell() {
   const [challengeDone, setChallengeDone] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(false);
 
-  const desafioDoDia = "Fazer uma refeição vegetariana";
-  const sugestoes = [
-    "Tomar banho de 5 minutos no máximo",
-    "Utilizar energia renovável",
-  ];
+  const sugestoes = suggestions;
+
+  function getSugestaoDoDia(lista) {
+    const hoje = new Date();
+    const seed = hoje.getFullYear() + hoje.getMonth() + hoje.getDate();
+    const index = seed % lista.length;
+    return lista[index];
+  }
+
+  const desafioDoDia = getSugestaoDoDia(sugestoes);
 
   const handleCompleteChallenge = () => {
     if (!challengeDone) {
@@ -62,16 +68,9 @@ export default function AppShell() {
         onComplete={handleCompleteChallenge}
       />
 
-      <section className="mt-8">
-        <h3 className="text-lg font-semibold mb-3">Sugestões Sustentáveis</h3>
-        <SuggestionsList suggestions={sugestoes} />
-        <p className="text-[#E58E26] mt-4 text-center text-sm cursor-pointer hover:underline">
-          Ver mais sugestões
-        </p>
-      </section>
+      <SuggestionsSection sugestoes={sugestoes} desafioDoDia={desafioDoDia} />
 
-      {/* Estatísticas */}
-      <div className="mt-10">
+      <div className="mt-5">
         <ImpactStats completed={completed} co2={co2} />
       </div>
     </div>
