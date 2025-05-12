@@ -1,17 +1,18 @@
 export default function ChallengeCard({ challenge, done, onComplete }) {
   return (
-    <div className="bg-white dark:bg-gray-800 rounded-xl shadow p-4 flex flex-col gap-4">
-      <div className="flex items-center gap-2">
-        <span className="text-2xl">🥕</span>
-        <p className="text-lg font-medium text-gray-900 dark:text-gray-100">{challenge}</p>
+    <div className="bg-white dark:bg-[#2A2A2A] rounded-2xl shadow-lg p-6 flex flex-col gap-6 transition-all">
+      <div className="flex items-center gap-3">
+        <span className="text-3xl">🥕</span>
+        <p className="text-lg font-semibold">{challenge}</p>
       </div>
+
       <button
         onClick={onComplete}
         disabled={done}
-        className={`w-full py-2 rounded-full text-white font-semibold transition ${
+        className={`w-full py-3 rounded-full text-white font-semibold transition-all duration-300 ${
           done
-            ? "bg-green-300 cursor-not-allowed"
-            : "bg-green-600 hover:bg-green-700 dark:bg-green-700 dark:hover:bg-green-600"
+            ? "bg-[#6EE7B7] cursor-not-allowed"
+            : "bg-[#00A86B] hover:bg-[#007A50] hover:scale-105"
         }`}
       >
         {done ? "✅ Feito!" : "✔️ Marcar como feito"}

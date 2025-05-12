@@ -1,29 +1,27 @@
-// src/components/Stats/ImpactStats.jsx
 export default function ImpactStats({ completed, co2 }) {
-  // Verifique se 'stats' (no caso, os dados 'completed' e 'co2') estão definidos
-  const stats = { "Desafios Completos": completed, "CO2 Evitado (kg)": co2 };
-
-  // Se 'stats' não for um objeto válido, retorne uma mensagem de erro ou um valor padrão
-  if (!stats || Object.keys(stats).length === 0) {
-    return <div>Dados não disponíveis</div>;
-  }
-
   return (
-    <div className="bg-white dark:bg-gray-800 p-4 rounded-xl shadow">
-      <h3 className="text-xl font-medium text-gray-900 dark:text-gray-100">
-        Impacto
+    <div className="bg-white dark:bg-[#2A2A2A] p-6 rounded-2xl shadow-lg mt-8">
+      <h3 className="text-xl font-semibold text-[#00A86B] dark:text-[#6EE7B7] mb-4">
+        Impacto até agora
       </h3>
-      <div className="mt-4 grid grid-cols-2 gap-4">
-        {Object.entries(stats).map(([key, value]) => (
-          <div key={key} className="text-center">
-            <p className="text-lg font-medium text-gray-900 dark:text-gray-100">
-              {key}
-            </p>
-            <p className="text-2xl font-semibold text-green-600 dark:text-green-400">
-              {value}
-            </p>
-          </div>
-        ))}
+
+      <div className="flex justify-between mb-4">
+        <div className="text-center">
+          <p className="text-lg font-semibold text-[#1A3D36] dark:text-[#E5E5E5]">
+            Desafios Completados
+          </p>
+          <p className="text-3xl font-bold text-[#00A86B] dark:text-[#6EE7B7]">
+            {completed}
+          </p>
+        </div>
+        <div className="text-center">
+          <p className="text-lg font-semibold text-[#1A3D36] dark:text-[#E5E5E5]">
+            CO2 Economizado
+          </p>
+          <p className="text-3xl font-bold text-[#00A86B] dark:text-[#6EE7B7]">
+            {co2} kg
+          </p>
+        </div>
       </div>
     </div>
   );
