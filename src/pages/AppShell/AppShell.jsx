@@ -10,8 +10,7 @@ export default function AppShell() {
   const [co2, setCo2] = useState(48);
   const [challengeDone, setChallengeDone] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(false);
-
-  const sugestoes = suggestions;
+  const [sugestoes, setSugestoes] = useState(suggestions);
 
   function getSugestaoDoDia(lista) {
     const hoje = new Date();
@@ -28,6 +27,40 @@ export default function AppShell() {
       setCo2((prev) => prev + 2);
       setChallengeDone(true);
     }
+  };
+
+  const handleCompleteSuggestion = (id) => {
+    // Atualiza a sugestão como concluída
+    const updatedSugestoes = sugestoes.map((sugestao) => {
+      if (sugestao.title === id) {
+        return { ...sugestao, completed: true }; // Marca como concluída
+      }
+      return sugestao;
+    });
+
+    // Organiza as sugestões em blocos de 3
+    const sugestoesPorBloco = [];
+    let blocoAtual = [];
+
+    updatedSugestoes.forEach((sugestao, index) => {
+      blocoAtual.push(sugestao);
+      if (blocoAtual.length === 3 || index === updatedSugestoes.length - 1) {
+        sugestoesPorBloco.push(blocoAtual);
+        blocoAtual = [];
+      }
+    });
+
+    // Para cada bloco, movemos as completadas para o final
+    const reorganizedSugestoes = sugestoesPorBloco.map((bloco) => {
+      const completadas = bloco.filter((sugestao) => sugestao.completed);
+      const pendentes = bloco.filter((sugestao) => !sugestao.completed);
+      return [...pendentes, ...completadas]; // Move completadas para o final do bloco
+    });
+
+    // Achata a lista de blocos de volta para um array único
+    const flatSugestoes = reorganizedSugestoes.flat();
+
+    setSugestoes(flatSugestoes); // Atualiza o estado com a nova ordem
   };
 
   useEffect(() => {
@@ -82,7 +115,11 @@ export default function AppShell() {
         onComplete={handleCompleteChallenge}
       />
 
-      <SuggestionsSection sugestoes={sugestoes} desafioDoDia={desafioDoDia} />
+      <SuggestionsSection
+        sugestoes={sugestoes}
+        desafioDoDia={desafioDoDia}
+        onCompleteSuggestion={handleCompleteSuggestion} // Passando a função para marcar a sugestão como concluída
+      />
 
       <div className="mt-5">
         <ImpactStats completed={completed} co2={co2} />
