@@ -1,8 +1,9 @@
 import { useState } from "react";
-import { CheckCircleIcon } from "@heroicons/react/24/solid";
+import SuggestionsItems from "./SuggestionsItems";
 
 export default function SuggestionsSection({ sugestoes, desafioDoDia }) {
   const [completedSuggestions, setCompletedSuggestions] = useState([]);
+  const [favoriteSuggestions, setFavoriteSuggestions] = useState([]);
 
   const sugestoesFiltradas = sugestoes.filter(
     (sugestao) => sugestao !== desafioDoDia
@@ -15,32 +16,30 @@ export default function SuggestionsSection({ sugestoes, desafioDoDia }) {
     }
   };
 
+  const toggleFavorite = (sugestao) => {
+    if (favoriteSuggestions.includes(sugestao)) {
+      setFavoriteSuggestions(
+        favoriteSuggestions.filter((fav) => fav !== sugestao)
+      );
+    } else {
+      setFavoriteSuggestions([...favoriteSuggestions, sugestao]);
+    }
+  };
+
   return (
     <section className="mt-8">
       <h3 className="text-lg font-semibold mb-6">Sugestões Sustentáveis</h3>
 
       <div className="space-y-4">
         {sugestoesParaExibir.map((sugestao, index) => (
-          <div
+          <SuggestionsItems
             key={index}
-            className="bg-white dark:bg-[#2A2A2A] p-4 rounded-xl shadow-md flex justify-between items-center"
-          >
-            <p className="text-sm text-[#1A3D36] dark:text-[#E5E5E5]">
-              {sugestao}
-            </p>
-            <button
-              onClick={() => handleCompleteSuggestion(sugestao)}
-              disabled={completedSuggestions.includes(sugestao)}
-              className={`flex items-center gap-2 text-sm font-medium transition duration-300 ${
-                completedSuggestions.includes(sugestao)
-                  ? "cursor-not-allowed text-[#6EE7B7]"
-                  : "text-[#00A86B] hover:text-[#007A50]"
-              }`}
-            >
-              <CheckCircleIcon className="h-5 w-5" />
-              {completedSuggestions.includes(sugestao) ? "Feito!" : "Concluir"}
-            </button>
-          </div>
+            sugestao={sugestao}
+            isCompleted={completedSuggestions.includes(sugestao)}
+            isFavorite={favoriteSuggestions.includes(sugestao)}
+            onComplete={handleCompleteSuggestion}
+            onToggleFavorite={() => toggleFavorite(sugestao)}
+          />
         ))}
       </div>
 
