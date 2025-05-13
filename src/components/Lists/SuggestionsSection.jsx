@@ -44,9 +44,14 @@ export default function SuggestionsSection({ sugestoes, desafioDoDia }) {
         ))}
       </div>
 
-      <p className="text-[#E58E26] mt-4 text-center text-sm cursor-pointer hover:underline">
-        Ver mais sugestões
-      </p>
+      <div className="text-center mt-4">
+        <button
+          aria-label="Ver mais sugestões sustentáveis"
+          className="text-[#E58E26] text-sm cursor-pointer hover:underline bg-transparent border-none"
+        >
+          Ver mais sugestões
+        </button>
+      </div>
     </section>
   );
 }

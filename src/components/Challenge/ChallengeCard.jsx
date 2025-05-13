@@ -18,7 +18,7 @@ export default function ChallengeCard({ challenge, done, onComplete }) {
             : "bg-[#00A86B] hover:bg-[#007A50] hover:scale-105"
         }`}
       >
-        {done ? "✅ Feito!" : "✔️ Marcar como feito"}
+        {done ? "✅ Feito!" : "Marcar como feito"}
       </button>
     </div>
   );

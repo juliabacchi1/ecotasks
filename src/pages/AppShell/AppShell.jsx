@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { MoonIcon, SunIcon } from "@heroicons/react/24/outline";
 import ChallengeCard from "../../components/Challenge/ChallengeCard";
 import SuggestionsSection from "../../components/Lists/SuggestionsSection";
 import ImpactStats from "../../components/Stats/ImpactStats";
@@ -50,12 +51,17 @@ export default function AppShell() {
         <h1 className="text-2xl font-bold tracking-tight mb-1 mt-2">
           🌱 EcoTasks
         </h1>
+
         <button
           onClick={() => setIsDarkMode(!isDarkMode)}
-          className="px-3 py-1.5 rounded-full bg-[#00A86B] text-white text-sm hover:bg-[#007A50] transition"
           aria-label={isDarkMode ? "Ativar modo claro" : "Ativar modo escuro"}
+          className="p-3 rounded-full bg-[#00A86B] text-white hover:bg-[#007A50] transition"
         >
-          {isDarkMode ? "☀️ Claro" : "🌙 Escuro"}
+          {isDarkMode ? (
+            <SunIcon className="h-5 w-5" />
+          ) : (
+            <MoonIcon className="h-5 w-5" />
+          )}
         </button>
       </div>
 
