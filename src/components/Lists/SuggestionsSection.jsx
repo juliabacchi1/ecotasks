@@ -1,5 +1,5 @@
 import { useState } from "react";
-import SuggestionsItems from "./SuggestionsItems";
+import SuggestionsSortable from "./SuggestionsSortable";
 
 export default function SuggestionsSection({ sugestoes, desafioDoDia }) {
   const [completedSuggestions, setCompletedSuggestions] = useState([]);
@@ -30,18 +30,13 @@ export default function SuggestionsSection({ sugestoes, desafioDoDia }) {
     <section className="mt-8">
       <h3 className="text-lg font-semibold mb-6">Sugestões Sustentáveis</h3>
 
-      <div className="space-y-4">
-        {sugestoesParaExibir.map((sugestao, index) => (
-          <SuggestionsItems
-            key={index}
-            sugestao={sugestao}
-            isCompleted={completedSuggestions.includes(sugestao)}
-            isFavorite={favoriteSuggestions.includes(sugestao)}
-            onComplete={handleCompleteSuggestion}
-            onToggleFavorite={() => toggleFavorite(sugestao)}
-          />
-        ))}
-      </div>
+      <SuggestionsSortable
+        sugestoes={sugestoesParaExibir}
+        completedSuggestions={completedSuggestions}
+        favoriteSuggestions={favoriteSuggestions}
+        onComplete={handleCompleteSuggestion}
+        onToggleFavorite={toggleFavorite}
+      />
 
       <div className="text-center mt-4">
         <button
