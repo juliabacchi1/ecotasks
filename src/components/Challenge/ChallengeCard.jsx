@@ -17,8 +17,13 @@ export default function ChallengeCard({ challenge, done, onComplete }) {
   const handleClick = () => {
     const randomIndex = Math.floor(Math.random() * successMessages.length);
     setSuccessMessage(successMessages[randomIndex]);
+
+    const audio = new Audio("/sounds/ding.mp3");
+    audio.play();
+
     onComplete();
   };
+
 
   return (
     <div className="bg-white dark:bg-[#2A2A2A] rounded-2xl shadow-lg p-6 flex flex-col gap-6 transition-all">

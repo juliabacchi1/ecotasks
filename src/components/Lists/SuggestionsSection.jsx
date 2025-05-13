@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { CheckCircleIcon } from "@heroicons/react/24/solid";
 
 export default function SuggestionsSection({ sugestoes, desafioDoDia }) {
   const [completedSuggestions, setCompletedSuggestions] = useState([]);
@@ -30,15 +31,14 @@ export default function SuggestionsSection({ sugestoes, desafioDoDia }) {
             <button
               onClick={() => handleCompleteSuggestion(sugestao)}
               disabled={completedSuggestions.includes(sugestao)}
-              className={`text-[#00A86B] hover:text-[#007A50] transition duration-300 ${
+              className={`flex items-center gap-2 text-sm font-medium transition duration-300 ${
                 completedSuggestions.includes(sugestao)
                   ? "cursor-not-allowed text-[#6EE7B7]"
-                  : ""
+                  : "text-[#00A86B] hover:text-[#007A50]"
               }`}
             >
-              {completedSuggestions.includes(sugestao)
-                ? "✅ Feito!"
-                : "✔️ Concluir"}
+              <CheckCircleIcon className="h-5 w-5" />
+              {completedSuggestions.includes(sugestao) ? "Feito!" : "Concluir"}
             </button>
           </div>
         ))}

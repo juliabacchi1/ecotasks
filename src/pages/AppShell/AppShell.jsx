@@ -48,9 +48,16 @@ export default function AppShell() {
   return (
     <div className="min-h-screen bg-[#F5F9F7] dark:bg-[#1E1E1E] text-[#1A3D36] dark:text-[#E5E5E5] transition-colors duration-300 font-sans px-4 py-6 max-w-md mx-auto">
       <div className="flex justify-between mb-6">
-        <h1 className="text-2xl font-bold tracking-tight mb-1 mt-2">
-          🌱 EcoTasks
-        </h1>
+        <img
+          src="/logo/logomarca.svg"
+          alt="EcoTasks logo"
+          className="h-8 mt-2 hidden md:block"
+        />
+        <img
+          src="/logo/logo.svg"
+          alt="EcoTasks logo"
+          className="h-8 mt-2 block md:hidden"
+        />
 
         <button
           onClick={() => setIsDarkMode(!isDarkMode)}
