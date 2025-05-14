@@ -1,12 +1,62 @@
-# React + Vite
+# 🌱 EcoTasks
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Aplicativo de tarefas sustentáveis desenvolvido em React, Vite e Tailwind. O EcoTasks incentiva pequenas ações ecológicas diárias com uma experiência simples, moderna e interativa, incluindo sistema de favoritos, conclusão de tarefas e drag & drop.
 
-Currently, two official plugins are available:
+[![License](https://img.shields.io/badge/License-MIT-green)](https://opensource.org/licenses/MIT)
+[![Tech Stack](https://img.shields.io/badge/Tech%20Stack-React%2C%20Vite%2C%20Tailwind-blue)](https://reactjs.org/)
+[![Deploy](https://img.shields.io/badge/Deploy-Vercel-purple)](https://ecotasks.vercel.app/)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Tecnologias
 
-## Expanding the ESLint configuration
+- React
+- Vite
+- Tailwind CSS
+- @dnd-kit – para funcionalidade de arrastar e soltar
+- Heroicons – ícones modernos
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 📦 Instalação
+
+git clone https://github.com/seu-usuario/ecotasks.git
+cd ecotasks
+npm install
+npm run dev
+
+## 🔧 Funcionalidades
+
+✅ Marcar sugestões sustentáveis como concluídas
+⭐ Favoritar sugestões para destaque
+📌 Organizar sugestões com drag & drop
+📅 Desafio do dia em destaque
+📉 Exibição da economia de CO₂ por tarefa
+💾 Persistência local com localStorage
+
+## 📁 Estrutura do projeto
+
+src/
+├── components/
+│   ├── Challenge/
+│   │   └── ChallengeCard.jsx
+│   ├── Lists/
+│   │   ├── SuggestionsSection.jsx
+│   │   ├── SuggestionsSortable.jsx
+│   │   └── SuggestionsItems.jsx
+│   ├── Stats/
+│   │   └── ImpactStats.jsx
+├── data/
+│   └── SuggestionsList.js
+├── pages/
+│   ├── AppShell/
+│   │   └── AppShell.jsx
+│   └── StyleGuide/
+│       └── StyleGuide.jsx
+├── App.jsx
+└── main.jsx
+
+## 🧪 Em desenvolvimento
+
+- Tela de progresso semanal
+- Integração com APIs de clima ou sustentabilidade
+- Login e perfil de usuário
+
+## 📄 Licença
+MIT © Júlia Bacchi
