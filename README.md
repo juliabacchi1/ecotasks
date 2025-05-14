@@ -5,6 +5,7 @@ Aplicativo de tarefas sustentáveis desenvolvido em React, Vite e Tailwind. O Ec
 [![License](https://img.shields.io/badge/License-MIT-green)](https://opensource.org/licenses/MIT)
 [![Tech Stack](https://img.shields.io/badge/Tech%20Stack-React%2C%20Vite%2C%20Tailwind-blue)](https://reactjs.org/)
 [![Deploy](https://img.shields.io/badge/Deploy-Vercel-purple)](https://ecotasks.vercel.app/)
+[![GitHub](https://img.shields.io/badge/GitHub-@juliabacchi1/ecotasks-black?logo=github)](https://github.com/juliabacchi1/ecotasks)
 
 ## 🚀 Tecnologias
 
@@ -16,34 +17,35 @@ Aplicativo de tarefas sustentáveis desenvolvido em React, Vite e Tailwind. O Ec
 
 ## 📦 Instalação
 
-git clone https://github.com/seu-usuario/ecotasks.git
+```bash
+git clone https://github.com/juliabacchi1/ecotasks.git
 cd ecotasks
 npm install
 npm run dev
 
 ## 🔧 Funcionalidades
 
-✅ Marcar sugestões sustentáveis como concluídas
-⭐ Favoritar sugestões para destaque
-📌 Organizar sugestões com drag & drop
-📅 Desafio do dia em destaque
-📉 Exibição da economia de CO₂ por tarefa
-💾 Persistência local com localStorage
+- ✅ Marcar sugestões sustentáveis como concluídas
+- ⭐ Favoritar sugestões para destaque
+- 📌 Organizar sugestões com drag & drop
+- 📅 Desafio do dia em destaque
+- 📉 Exibição da economia de CO₂ por tarefa
+- 💾 Persistência local com localStorage
 
 ## 📁 Estrutura do projeto
 
 src/
 ├── components/
-│   ├── Challenge/
+│   ├── challenge/
 │   │   └── ChallengeCard.jsx
-│   ├── Lists/
+│   ├── lists/
 │   │   ├── SuggestionsSection.jsx
 │   │   ├── SuggestionsSortable.jsx
 │   │   └── SuggestionsItems.jsx
-│   ├── Stats/
+│   ├── stats/
 │   │   └── ImpactStats.jsx
 ├── data/
-│   └── SuggestionsList.js
+│   └── suggestionsList.js
 ├── pages/
 │   ├── AppShell/
 │   │   └── AppShell.jsx
