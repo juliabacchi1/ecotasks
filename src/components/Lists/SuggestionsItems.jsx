@@ -34,7 +34,9 @@ export default function SuggestionsItem({
       {...listeners}
       className="bg-white dark:bg-[#2A2A2A] p-4 rounded-xl shadow-md flex justify-between items-center cursor-grab active:cursor-grabbing"
     >
-      <p className="text-sm text-[#1A3D36] dark:text-[#E5E5E5]">{sugestao}</p>
+      <p className="text-sm text-[#1A3D36] dark:text-[#E5E5E5]">
+        {sugestao.title}
+      </p>
       <div className="flex gap-2 items-center">
         <button
           onClick={onToggleFavorite}

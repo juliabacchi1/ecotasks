@@ -15,7 +15,6 @@ import SuggestionsItem from "./SuggestionsItems";
 
 export default function SuggestionsSortable({
   sugestoes,
-  completedSuggestions,
   favoriteSuggestions,
   onComplete,
   onToggleFavorite,
@@ -34,8 +33,8 @@ export default function SuggestionsSortable({
     const { active, over } = event;
 
     if (active.id !== over?.id) {
-      const oldIndex = items.findIndex((item) => item === active.id);
-      const newIndex = items.findIndex((item) => item === over.id);
+      const oldIndex = items.findIndex((item) => item.title === active.id);
+      const newIndex = items.findIndex((item) => item.title === over.id);
 
       setItems((items) => arrayMove(items, oldIndex, newIndex));
     }
@@ -51,16 +50,19 @@ export default function SuggestionsSortable({
       collisionDetection={closestCenter}
       onDragEnd={handleDragEnd}
     >
-      <SortableContext items={items} strategy={verticalListSortingStrategy}>
+      <SortableContext
+        items={items.map((item) => item.title)}
+        strategy={verticalListSortingStrategy}
+      >
         <div className="space-y-4">
           {items.map((sugestao) => (
             <SuggestionsItem
-              key={sugestao}
-              id={sugestao}
+              key={sugestao.title}
+              id={sugestao.title}
               sugestao={sugestao}
-              isCompleted={completedSuggestions.includes(sugestao)}
-              isFavorite={favoriteSuggestions.includes(sugestao)}
-              onComplete={onComplete}
+              isCompleted={sugestao.completed}
+              isFavorite={favoriteSuggestions.includes(sugestao.title)}
+              onComplete={() => onComplete(sugestao)}
               onToggleFavorite={() => onToggleFavorite(sugestao)}
             />
           ))}
