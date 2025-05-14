@@ -6,8 +6,7 @@ import ImpactStats from "../../components/Stats/ImpactStats";
 import suggestions from "../../data/SuggestionsList";
 
 export default function AppShell() {
-  const [completed, setCompleted] = useState(29);
-  const [co2, setCo2] = useState(48);
+  const [co2, setCo2] = useState(0);
   const [challengeDone, setChallengeDone] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [sugestoes, setSugestoes] = useState(suggestions);
@@ -23,25 +22,33 @@ export default function AppShell() {
 
   const handleCompleteChallenge = () => {
     if (!challengeDone) {
-      setCompleted((prev) => prev + 1);
-      setCo2((prev) => prev + 2);
+      setCo2((prev) => prev + desafioDoDia.co2);
+      setSugestoes((prev) => {
+        const jaExiste = prev.find((item) => item.title === desafioDoDia.title);
+
+        if (jaExiste) {
+          return prev.map((item) =>
+            item.title === desafioDoDia.title
+              ? { ...item, completed: true }
+              : item
+          );
+        }
+
+        return [...prev, { ...desafioDoDia, completed: true }];
+      });
       setChallengeDone(true);
     }
   };
 
   const handleCompleteSuggestion = (id) => {
-    // Atualiza a sugestão como concluída
-    const updatedSugestoes = sugestoes.map((sugestao) => {
-      if (sugestao.title === id) {
-        return { ...sugestao, completed: true }; // Marca como concluída
-      }
-      return sugestao;
-    });
+    const updatedSugestoes = sugestoes.map((sugestao) =>
+      sugestao.title === id.title ? { ...sugestao, completed: true } : sugestao
+    );
 
-    // Organiza as sugestões em blocos de 3
+    setCo2((prev) => prev + id.co2);
+
     const sugestoesPorBloco = [];
     let blocoAtual = [];
-
     updatedSugestoes.forEach((sugestao, index) => {
       blocoAtual.push(sugestao);
       if (blocoAtual.length === 3 || index === updatedSugestoes.length - 1) {
@@ -50,17 +57,14 @@ export default function AppShell() {
       }
     });
 
-    // Para cada bloco, movemos as completadas para o final
     const reorganizedSugestoes = sugestoesPorBloco.map((bloco) => {
       const completadas = bloco.filter((sugestao) => sugestao.completed);
       const pendentes = bloco.filter((sugestao) => !sugestao.completed);
-      return [...pendentes, ...completadas]; // Move completadas para o final do bloco
+      return [...pendentes, ...completadas];
     });
 
-    // Achata a lista de blocos de volta para um array único
     const flatSugestoes = reorganizedSugestoes.flat();
-
-    setSugestoes(flatSugestoes); // Atualiza o estado com a nova ordem
+    setSugestoes(flatSugestoes);
   };
 
   useEffect(() => {
@@ -118,11 +122,11 @@ export default function AppShell() {
       <SuggestionsSection
         sugestoes={sugestoes}
         desafioDoDia={desafioDoDia}
-        onCompleteSuggestion={handleCompleteSuggestion} // Passando a função para marcar a sugestão como concluída
+        onCompleteSuggestion={handleCompleteSuggestion}
       />
 
       <div className="mt-5">
-        <ImpactStats completed={completed} co2={co2} />
+        <ImpactStats sugestoes={sugestoes} co2={co2} />
       </div>
     </div>
   );
