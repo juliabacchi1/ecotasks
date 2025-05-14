@@ -22,6 +22,7 @@ git clone https://github.com/juliabacchi1/ecotasks.git
 cd ecotasks
 npm install
 npm run dev
+```
 
 ## 🔧 Funcionalidades
 
@@ -34,6 +35,7 @@ npm run dev
 
 ## 📁 Estrutura do projeto
 
+```bash
 src/
 ├── components/
 │   ├── challenge/
@@ -53,6 +55,7 @@ src/
 │       └── StyleGuide.jsx
 ├── App.jsx
 └── main.jsx
+```
 
 ## 🧪 Em desenvolvimento
 
