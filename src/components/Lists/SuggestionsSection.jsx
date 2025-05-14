@@ -56,22 +56,12 @@ export default function SuggestionsSection({
     }
   };
 
-  const handleToggleVerMais = () => {
-    if (quantidadeSugestoes >= sugestoesFiltradas.length) {
-      setQuantidadeSugestoes(3);
-    } else {
-      setQuantidadeSugestoes(quantidadeSugestoes + 3);
-    }
-  };
-
-  const mostrarBotao = sugestoesFiltradas.length > 3;
-
   return (
     <section className="mt-8">
       <h3 className="text-lg font-semibold mb-6">Sugestões Sustentáveis</h3>
 
       <SuggestionsSortable
-        sugestoes={sugestoesOrdenadas}
+        sugestoes={sugestoesParaExibir}
         completedSuggestions={completedSuggestions}
         favoriteSuggestions={favoriteSuggestions}
         onComplete={handleCompleteSuggestion}

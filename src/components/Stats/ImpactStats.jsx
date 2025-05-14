@@ -1,7 +1,6 @@
 import { TrophyIcon, CloudIcon } from "@heroicons/react/24/outline";
 
 export default function ImpactStats({ co2, sugestoes }) {
-  console.log(sugestoes);
   return (
     <div className="relative overflow-hidden rounded-3xl shadow-lg p-[1px]">
       <div className="absolute inset-0 bg-gradient-to-br from-[#00a86b] via-[#6ee7b7] to-[#b2f5ea] animate-[spin_6s_linear_infinite] rounded-3xl opacity-40" />
