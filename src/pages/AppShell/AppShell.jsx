@@ -88,7 +88,7 @@ export default function AppShell() {
         <img
           src="/logo/logomarca.svg"
           alt="EcoTasks logo"
-          className="h-8 mt-2 hidden md:block"
+          className="h-8 w-auto mt-2 hidden md:block"
         />
         <img
           src="/logo/logo.svg"
