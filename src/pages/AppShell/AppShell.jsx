@@ -93,7 +93,7 @@ export default function AppShell() {
         <img
           src="/logo/logo.svg"
           alt="EcoTasks logo"
-          className="h-8 mt-2 block md:hidden"
+          className="h-8 w-auto mt-2 block md:hidden"
         />
 
         <button
