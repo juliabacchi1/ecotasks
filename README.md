@@ -7,6 +7,8 @@ Aplicativo de tarefas sustentáveis desenvolvido em React, Vite e Tailwind. O Ec
 [![Deploy](https://img.shields.io/badge/Deploy-Vercel-purple)](https://ecotasks.vercel.app/)
 [![GitHub](https://img.shields.io/badge/GitHub-@juliabacchi1/ecotasks-black?logo=github)](https://github.com/juliabacchi1/ecotasks)
 
+![Ecotasks Screenshot](./public/screenshot.png)
+
 ## 🚀 Tecnologias
 
 - React
@@ -38,16 +40,16 @@ npm run dev
 ```bash
 src/
 ├── components/
-│   ├── challenge/
+│   ├── Challenge/
 │   │   └── ChallengeCard.jsx
-│   ├── lists/
+│   ├── Lists/
 │   │   ├── SuggestionsSection.jsx
 │   │   ├── SuggestionsSortable.jsx
 │   │   └── SuggestionsItems.jsx
-│   ├── stats/
+│   ├── Stats/
 │   │   └── ImpactStats.jsx
 ├── data/
-│   └── suggestionsList.js
+│   └── SuggestionsList.js
 ├── pages/
 │   ├── AppShell/
 │   │   └── AppShell.jsx
