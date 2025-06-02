@@ -7,15 +7,16 @@ Aplicativo de tarefas sustentáveis desenvolvido em React, Vite e Tailwind. O Ec
 [![Deploy](https://img.shields.io/badge/Deploy-Vercel-purple)](https://ecotasks.vercel.app/)
 [![GitHub](https://img.shields.io/badge/GitHub-@juliabacchi1/ecotasks-black?logo=github)](https://github.com/juliabacchi1/ecotasks)
 
-![Ecotasks Screenshot](./public/screenshot.png)
+![Ecotasks Screenshot](./public/screenshot.webp)
 
 ## 🚀 Tecnologias
 
-- React
-- Vite
-- Tailwind CSS
-- @dnd-kit – para funcionalidade de arrastar e soltar
-- Heroicons – ícones modernos
+- [React](https://reactjs.org/)
+- [Vite](https://vitejs.dev/)
+- [TailwindCSS](https://tailwindcss.com/)
+- [@dnd-kit](https://dndkit.com/)
+- [Heroicons](https://heroicons.com/)
+- [Vercel](https://vercel.com/) – Deploy
 
 ## 📦 Instalação
 
@@ -65,5 +66,14 @@ src/
 - Integração com APIs de clima ou sustentabilidade
 - Login e perfil de usuário
 
+## 🙋‍♀️ Feito por
+Julia Bacchi – desenvolvedora front-end apaixonada por inovação, sustentabilidade e boas ideias.
+[LinkedIn](https://www.linkedin.com/in/juliabacchi/) | [Portfólio](https://juliadev.vercel.app/)
+
+## 💬 Quer colaborar?
+Sinta-se à vontade, toda ajuda é bem-vinda 💛
+
 ## 📄 Licença
-MIT © Júlia Bacchi
+MIT © Julia Bacchi
+
+---
