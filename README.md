@@ -68,7 +68,7 @@ src/
 
 ## 🙋‍♀️ Feito por
 Julia Bacchi – desenvolvedora front-end apaixonada por inovação, sustentabilidade e boas ideias.
-[LinkedIn](https://www.linkedin.com/in/juliabacchi/) | [Portfólio](https://juliadev.vercel.app/)
+[LinkedIn](https://www.linkedin.com/in/juliabacchi/) | [Portfólio](https://juliabacchi.com)
 
 ## 💬 Quer colaborar?
 Sinta-se à vontade, toda ajuda é bem-vinda 💛
